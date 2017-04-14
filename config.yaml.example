@@ -1,0 +1,13 @@
+postgresql:
+    type: postgresql
+    host: localhost
+    user: core
+    pass: core
+    database: core
+    schema:
+mysql:
+    type: mysql 
+    host: localhost
+    user: core
+    pass: core
+    database: core
