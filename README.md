@@ -21,7 +21,7 @@ Run pre-import script (truncates `migrate_version` table and makes PostgreSQL co
 
 Create a new `mysqldump`:
 ```
-mysqldump --compatible=postgresql --no-create-info --complete-insert --extended-insert --skip-comments --skip-add-locks --default-character-set=utf8 --skip-tz-utc -u core -p core | sed -e "s/\\\'/''/g" > dump.sql
+mysqldump --compatible=postgresql --no-create-info --complete-insert --extended-insert --skip-comments --skip-add-locks --default-character-set=utf8 --skip-tz-utc -u [user] -p [database] | sed -e "s/\\\'/''/g" > dump.sql
 ```
 
 Run script to process the dump for `psql`:
@@ -31,7 +31,7 @@ Run script to process the dump for `psql`:
 
 Import the data with `psql`:
 ```
-psql -U core -W core -f fixed.sql
+psql -U [user] -W [database] -f fixed.sql
 ```
 
 Run post-import script (fixes auto-increment counters):
